@@ -18,12 +18,12 @@ resource "azurerm_sql_server" "main" {
 
 # SQL Database: Create a database within the SQL Server
 resource "azurerm_sql_database" "main" {
-  name                = var.sql_db_name
-  server_name         = azurerm_sql_server.main.name
-  resource_group_name = var.resource_group_name
-  location            = var.region
-   requested_service_objective_name = "S2"
-  tags = var.tags
+  name                             = var.sql_db_name
+  server_name                      = azurerm_sql_server.main.name
+  resource_group_name              = var.resource_group_name
+  location                         = var.region
+  requested_service_objective_name = "S2"
+  tags                             = var.tags
 }
 
 # SQL Firewall Rule: Allow connections from Azure services
