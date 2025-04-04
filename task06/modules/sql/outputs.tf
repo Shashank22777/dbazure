@@ -12,5 +12,5 @@ output "sql_connection_string" {
 
 output "sql_server_fqdn" {
   description = "The Fully Qualified Domain Name of the SQL Server"
-  value       = azurerm_sql_server.main.fully_qualified_domain_name
+  value       = azurerm_mssql_server.main.fully_qualified_domain_name
 }
