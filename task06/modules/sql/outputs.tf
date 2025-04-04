@@ -1,13 +1,8 @@
 output "sql_connection_string" {
   description = "The connection string for connecting to the SQL Database"
   sensitive   = true
-  value = format(
-    "Server=tcp:%s;Initial Catalog=%s;Persist Security Info=False;User ID=%s;Password=%s;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-    azurerm_mssql_server.main.fully_qualified_domain_name, # SQL Server FQDN
-    azurerm_mssql_database.main.name,                      # SQL DB Name
-    var.sql_admin_name,                                    # Admin Username
-    random_password.sql_admin_password.result              # Generated Password
-  )
+  value       = format("Server=tcp:${azurerm_mssql_server.main.fully_qualified_domain_name},1433;Initial Catalog=${azurerm_mssql_database.main.name};Persist Security Info=False;User ID=${var.sql_admin_name};Password=${random_password.sql_admin_password.result};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;")
+
 }
 
 output "sql_server_fqdn" {
