@@ -3,32 +3,32 @@ variable "region" {
   type        = string
 }
 
-variable "sql_server_name" {
+variable "mssql_server_name" {
   description = "Name of the SQL Server"
   type        = string
 }
 
-variable "sql_db_name" {
+variable "mssql_db_name" {
   description = "Name of the SQL Database"
   type        = string
 }
 
-variable "sql_admin_name" {
+variable "mssql_admin_name" {
   description = "SQL admin username"
   type        = string
 }
 
-variable "sql_admin_name_secret" {
+variable "mssql_admin_name_secret" {
   description = "Key Vault Secret name for SQL admin username"
   type        = string
 }
 
-variable "sql_admin_password_secret" {
+variable "mssql_admin_password_secret" {
   description = "Key Vault Secret name for SQL admin password"
   type        = string
 }
 
-variable "sql_firewall_rule_name" {
+variable "mssql_firewall_rule_name" {
   description = "Firewall rule name for verification"
   type        = string
 }

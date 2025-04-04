@@ -1,13 +1,9 @@
-resource "azurerm_app_service_plan" "main" {
+resource "azurerm_service_plan" "main" {
   name                = var.app_service_plan
   resource_group_name = var.resource_group_name
   location            = var.region
-  kind                = "Linux"
-
-  sku {
-    tier = "PremiumV3"
-    size = "P0v3"
-  }
+  os_type             = "Linux"
+  sku_name            = "P0v3"
 
   reserved = true
 

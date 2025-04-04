@@ -3,10 +3,10 @@ output "sql_connection_string" {
   sensitive   = true
   value = format(
     "Server=tcp:%s;Initial Catalog=%s;Persist Security Info=False;User ID=%s;Password=%s;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;",
-    azurerm_sql_server.main.fully_qualified_domain_name, # SQL Server FQDN
-    azurerm_sql_database.main.name,                      # SQL DB Name
-    var.sql_admin_name,                                  # Admin Username
-    random_password.sql_admin_password.result            # Generated Password
+    azurerm_mssql_server.main.fully_qualified_domain_name, # SQL Server FQDN
+    azurerm_mssql_database.main.name,                      # SQL DB Name
+    var.mssql_admin_name,                                  # Admin Username
+    random_password.sql_admin_password.result              # Generated Password
   )
 }
 
