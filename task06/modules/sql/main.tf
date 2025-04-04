@@ -20,6 +20,7 @@ resource "azurerm_mssql_server" "main" {
 resource "azurerm_mssql_database" "main" {
   name      = var.sql_db_name
   server_id = azurerm_mssql_server.main.id
+  sku_name  = "S2"
   tags      = var.tags
 }
 
